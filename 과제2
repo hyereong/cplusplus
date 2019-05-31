@@ -1,0 +1,64 @@
+연산자 오버로딩
+1. 사각형의 가로 및 세로를 입력 받고 면적을 계산하는 프로그램을 C++의 클래스 기반으로 작성하시오.
+#include<iostream>
+using namespace std;
+class CMath{
+int w,h;
+public:
+int Input(){
+cout << "가로:";
+cin >> w;
+cout << "세로:";
+cin >> h;
+}
+int Area(){
+return(w*h);
+}
+int Output(){
+cout << "넓이:" << Area();
+}
+};
+int main(){
+CMath Square;
+Square.Input();
+Square.Output();
+}
+2. Add(2,3) 및 Add(2.2, 3.3);이 실행 되도록 함수를 오버로딩 하시오.
+#include<iostream>
+using namespace std;
+int Add(int a,int b){
+return a+b;
+} 
+double Add(double a, double b){
+return a+b;
+}
+int main(){
+cout << Add(2,3) << endl;
+cout << Add(2.2,3.3) << endl;
+}
+3. 한 지점을 나타내는 (x, y)를 나타내는 클래스 CPnt를 만드시오.
+1) CPnt p1(2,3), p; 생성자를 오버로딩하시오.
+2) CPnt P1(2,3); p.Pr()이 2, 3을 출력하도록 하시오. 
+3) CPnt P1(2,3), p2(3,4), p; 에서 p=p1.Add(p2); 가 작동 되도록 코딩하시오.
+4)  CPnt P1(2,3), p2(3,4), p;에서 p = p1+p2;  가 실행 되도록 연산자 오버로딩을 하시오.
+#include<iostream>
+using namespace std;
+class CPnt{
+    int x,y;
+public:
+    CPnt(){}
+    CPnt(int a, int b):x(a),y(b){}
+    void Add(){ cout << x << " " << y <<endl;}
+    CPnt Add(CPnt p1){
+        return(CPnt(x + p1.x,y + p1.y));
+    }
+};
+int main(){
+    CPnt p1(2,3),p2(3,4),p;
+    p=p1.Add(p2);
+    p.Add();
+}
+교수님 이번 과제를 하면서, 저의 부족함을 조금이나마 깨닳은 것 같습니다. 과제를 하면서,
+깜짝퀴즈시험에 공부를 해야할것을 알아내게 되었어요. 그리고 교수님의 수업도 정말 좋지만, 제가 CPP언어 사이트 활용을 잘 못하는점도 있고,
+수업내용에 조금 뒤쳐지는 면도 있어서 교수님의 강의안에 있는 교재를 활용하여 공부를 열심히 해 볼 생각입니다.
+제 의지가 2학년와서는 조금 1학년때보단 공부를 더 잘하고싶어하는 것 같애서 저도 행복합니다. 감사합니다!
